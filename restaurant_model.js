@@ -19,8 +19,8 @@ const getRestaurants = () => {
   }
   const createRestaurant = (body) => {
     return new Promise(function(resolve, reject) {
-      const { name, address } = body
-      pool.query('INSERT INTO restaurant (name, address) VALUES ($1, $2) RETURNING *', [name, address], (error, results) => {
+      const { name, address, operating_hours, imagePath, restaurantType, priceLevel } = body
+      pool.query('INSERT INTO restaurant (name, address, operating_hours, imagepath, restaurant_type, price_level) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', [name, address, operating_hours, imagePath, restaurantType, priceLevel], (error, results) => {
         if (error) {
           reject(error)
         }

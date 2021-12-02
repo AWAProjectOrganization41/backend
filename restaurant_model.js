@@ -17,6 +17,18 @@ const getRestaurants = () => {
       })
     }) 
   }
+
+  const getMenu = () => {
+    return new Promise(function(resolve, reject) {
+      pool.query('SELECT * FROM restaurant_menu', (error, results) => {
+        if(error) {
+          reject(error)
+        }
+        resolve(results.rows);
+      })
+    })
+  }
+
   const createRestaurant = (body) => {
     return new Promise(function(resolve, reject) {
       const { name, address, operating_hours, imagePath, restaurantType, priceLevel } = body
@@ -28,6 +40,7 @@ const getRestaurants = () => {
       })
     })
   }
+
   const deleteRestaurant = () => {
     return new Promise(function(resolve, reject) {
       const id = parseInt(request.params.id)
@@ -44,4 +57,5 @@ const getRestaurants = () => {
     getRestaurants,
     createRestaurant,
     deleteRestaurant,
+    getMenu
   }

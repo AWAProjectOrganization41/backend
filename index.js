@@ -25,10 +25,8 @@ app.use(function (req, res, next) {
 app.get('/api', (req, res) => {
   console.log("mooi")
   restaurant_model.getRestaurants()
-  .then(res => {
-    console.log(res)
-    console.log("response: "+JSON.stringify(res))
-    res.status(200).send(res);
+  .then(response => {
+    res.status(200).send(response);
   })
   .catch(error => {
     res.status(500).send(error);

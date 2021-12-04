@@ -21,7 +21,7 @@ app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers');
   next();
 });
-
+/*
 app.get('/', (req, res) => {
   console-log("mooi")
   restaurant_model.getRestaurants()
@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
     res.status(500).send(error);
   })
 })
-
+*/
 app.get('/restaurant_menu', (req, res) => {
   restaurant_model.getMenu()
   .then(response => {

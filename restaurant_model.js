@@ -7,10 +7,12 @@ const client = new Client({
 });
 
 
+Client.connect()
+
+
 
 const getRestaurants = () => {
     return new Promise(function(resolve, reject) {
-      client.connect()
       client.query('SELECT * FROM restaurant', (error, results) => {
         if (error) {
           reject(error)

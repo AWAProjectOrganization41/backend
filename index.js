@@ -22,7 +22,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-/*app.get('/', (req, res) => {
+app.get('/', (req, res) => {
   restaurant_model.getRestaurants()
   .then(response => {
     res.status(200).send(response);
@@ -52,7 +52,7 @@ app.get('/user_login', (req, res) => {
   })
 })
 
-/*app.get('/restaurant_login', (req, res) => {
+app.get('/restaurant_login', (req, res) => {
   restaurant_model.getRestaurantLogin()
   .then(response => {
     res.status(200).send(response);
@@ -60,7 +60,7 @@ app.get('/user_login', (req, res) => {
   .catch(error => {
     res.status(500).send(error);
   })
-})*/
+})
 
 app.post('/restaurant', (req, res) => {
   restaurant_model.createRestaurant(req.body)

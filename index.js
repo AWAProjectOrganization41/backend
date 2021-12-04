@@ -23,8 +23,8 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', (req, res) => {
-  restaurant_model.getRestaurants()
   console-log("mooi")
+  restaurant_model.getRestaurants()
   .then(response => {
     console.log(response)
     console.log("response: "+JSON.stringify(response))

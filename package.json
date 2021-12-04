@@ -4,6 +4,7 @@
   "description": "API for react application",
   "main": "index.js",
   "scripts": {
+    "start": "node index",
     "test": "testapi"
   },
   "repository": {

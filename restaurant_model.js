@@ -15,6 +15,7 @@ const getRestaurants = () => {
           reject(error)
         }
         resolve(results.rows);
+        console.log(results)
       })
     }) 
   }

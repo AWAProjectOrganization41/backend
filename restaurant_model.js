@@ -15,8 +15,8 @@ const getRestaurants = () => {
         if (error) {
           reject(error)
         }
-        console.log("model"+JSON.stringify(results.rows))
-        resolve(results.rows[0]);
+        console.log("model"+JSON.stringify(results))
+        resolve(results);
         client.end();
       })
     }) 

@@ -25,7 +25,7 @@ app.use(function (req, res, next) {
 app.get('/', (req, res) => {
   restaurant_model.getRestaurants()
   .then(response => {
-    console.log(res.json({message: "hello"}))
+    console.log("response: "+JSON.stringify(response))
     res.status(200).send(response);
   })
   .catch(error => {

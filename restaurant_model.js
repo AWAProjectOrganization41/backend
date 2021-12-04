@@ -14,6 +14,8 @@ const getRestaurants = () => {
         if (error) {
           reject(error)
         }
+        for (let row of results.rows) {
+          console.log(JSON.stringify(row));}
         resolve(results.rows);
         console.log(results)
       })

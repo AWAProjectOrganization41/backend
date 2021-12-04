@@ -6,12 +6,10 @@ const port = process.env.PORT || 3001
 
 app.use(express.json())
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static('build'))
-  app.get('*', (req, res) => {
-    req.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+  app.use(express.static(path.join(__dirname, 'build')))
+  app.get('/*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
   })
-}
 
 const restaurant_model = require('./restaurant_model')
 

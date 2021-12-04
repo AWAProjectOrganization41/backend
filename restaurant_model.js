@@ -15,7 +15,7 @@ const getRestaurants = () => {
         if (error) {
           reject(error)
         }
-        console.log(JSON.stringify(result.rows))
+        console.log(JSON.stringify(resultss.rows))
         resolve(results.rows[0]);
         client.end();
       })
@@ -28,7 +28,6 @@ const getRestaurants = () => {
         if (error) {
           reject(error)
         }
-        console.log(JSON.stringify(row))
         resolve(`A new restaurant has been added added: ${results.rows[0]}`)
         client.end()
       })

@@ -2,17 +2,17 @@
 const { Client } = require('pg')
 const client = new Client({
   // kommaa jos teet lokaalisti
-  connectionString: process.env.DATABASE_URL,
+ /* connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
-}
+}*/
 
 //unkommaa jos teet lokaalisti
-/*user: 'local_u',
+user: 'local_u',
   host: 'localhost',
   database: 'restaurant_db',
   password: '1234',
-  port: 5432,*/
+  port: 5432,
 });
 
 

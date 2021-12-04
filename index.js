@@ -1,21 +1,21 @@
 const { response } = require('express')
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 3001
-const path = require('path')
-
-
-app.use(express.json())
-// COMMAA TÄMÄ JOS TEET LOKAALISTI
-  app.use(express.static(path.join(__dirname, 'build')))
-  app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
-  })
+const port = process.env.PORT || 3001 
 
 const restaurant_model = require('./restaurant_model')
 
-/*  UNCOMMAA TÄMÄ JOS DEVAAT LOKAALISTI
-app.use(function (req, res, next) {
+app.use(express.json())
+
+// Kommaa jos teet lokaalisti:
+/*app.use(express.static(path.join(__dirname, 'build')))
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+  })*/
+
+
+  //  UNCOMMAA TÄMÄ JOS DEVAAT LOKAALISTI
+/*app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers');
@@ -23,7 +23,6 @@ app.use(function (req, res, next) {
 });*/
 
 app.get('/r', (req, res) => {
-  console.log("mooi")
   restaurant_model.getRestaurants()
   .then(response => {
     res.status(200).send(response);
@@ -53,7 +52,7 @@ app.get('/user_login', (req, res) => {
   })
 })
 
-app.get('/restaurant_login', (req, res) => {
+/*app.get('/restaurant_login', (req, res) => {
   restaurant_model.getRestaurantLogin()
   .then(response => {
     res.status(200).send(response);
@@ -61,7 +60,7 @@ app.get('/restaurant_login', (req, res) => {
   .catch(error => {
     res.status(500).send(error);
   })
-})
+})*/
 
 app.post('/restaurant', (req, res) => {
   restaurant_model.createRestaurant(req.body)

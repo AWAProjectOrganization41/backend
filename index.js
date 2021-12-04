@@ -23,7 +23,7 @@ app.use(function (req, res, next) {
 });*/
 
 app.get('/', (req, res) => {
-  console-log("mooi")
+  console.log("mooi")
   restaurant_model.getRestaurants()
   .then(res => {
     console.log(res)

@@ -25,10 +25,10 @@ app.use(function (req, res, next) {
 app.get('/', (req, res) => {
   console-log("mooi")
   restaurant_model.getRestaurants()
-  .then(response => {
-    console.log(response)
-    console.log("response: "+JSON.stringify(response))
-    res.status(200).send(response);
+  .then(res => {
+    console.log(res)
+    console.log("response: "+JSON.stringify(res))
+    res.status(200).send(res);
   })
   .catch(error => {
     res.status(500).send(error);

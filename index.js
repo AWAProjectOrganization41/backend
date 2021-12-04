@@ -6,7 +6,7 @@ const path = require('path')
 
 
 app.use(express.json())
-
+// COMMAA TÄMÄ JOS TEET LOKAALISTI
   app.use(express.static(path.join(__dirname, 'build')))
   app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
@@ -14,7 +14,7 @@ app.use(express.json())
 
 const restaurant_model = require('./restaurant_model')
 
-/*
+/*  UNCOMMAA TÄMÄ JOS DEVAAT LOKAALISTI
 app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');

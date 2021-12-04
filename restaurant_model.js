@@ -6,18 +6,19 @@ const client = new Client({
 }
 });
 
-client.connect()
+
 
 const getRestaurants = () => {
     return new Promise(function(resolve, reject) {
+      client.connect()
       client.query('SELECT * FROM restaurant', (error, results) => {
         if (error) {
           reject(error)
         }
-        for (let row of results.rows) {
-          console.log(JSON.stringify(row));}
+          console.log(JSON.stringify(row));
         resolve(results.rows);
         console.log(results)
+        client.end();
       })
     }) 
   }

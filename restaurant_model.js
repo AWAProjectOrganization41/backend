@@ -7,7 +7,7 @@ const client = new Client({
 });
 
 
-Client.connect()
+client.connect()
 
 
 

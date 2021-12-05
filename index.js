@@ -5,7 +5,7 @@ const port = process.env.PORT || 3001
 
 const restaurant_model = require('./restaurant_model')
 
-app.use(express.json())
+//app.use(express.json())
 
 // Kommaa jos teet lokaalisti:
 app.use(express.static(path.join(__dirname, 'build')))

@@ -40,23 +40,27 @@ const getRestaurants = () => {
     })
   }
 
-  const getUserLogin = () => {
+  const postUserLogin = (body) => {
     return new Promise(function(resolve, reject) {
-      client.query("SELECT password FROM user_login WHERE username = 'user1'", (error, results) => {
-        if(error) {
+      const { email, password } = body
+      client.query("SELECT * FROM user_login WHERE username = $1 AND password = $2", [email, password], (error, results) => {
+        if (error) {
           reject(error)
         }
-        resolve(results.rows);
+        resolve(results.rows)
       })
     })
   }
 
-  const getRestaurantLogin = () => {
+  const postRestaurantLogin = (body) => {
     return new Promise(function(resolve, reject) {
-      client.query("SELECT restaurant_password FROM restaurant_login WHERE restaurant_username = 'hemmo'", (error, results) => {
+      console.log("moro2")
+      const { email, password } = body
+      client.query("SELECT * FROM restaurant_login WHERE restaurant_username = $1 AND restaurant_password = $2", [email, password], (error, results) => {
         if(error) {
           reject(error)
         }
+        console.log("moro3")
         resolve(results.rows);
       })
     })
@@ -101,8 +105,9 @@ const getRestaurants = () => {
 
   const createUserLogin = (body) => {
     return new Promise(function(resolve, reject) {
-      const { username, password, owner_id } = body
-      client.query('INSERT INTO user_login (username, password, owner_id) VALUES ($1, $2, $3) RETURNING *', [username, password, owner_id], (error, results) => {
+      const { username, password } = body
+      console.log(body)
+      client.query('INSERT INTO user_login (username, password) VALUES ($1, $2) RETURNING *', [username, password], (error, results) => {
         if (error) {
           reject(error)
         }
@@ -110,6 +115,8 @@ const getRestaurants = () => {
       })   
     })
   }
+
+// drop owner_id
 
   const createRestaurantLogin = (body) => {
     return new Promise(function(resolve, reject) {
@@ -188,8 +195,8 @@ const getRestaurants = () => {
     createRestaurant,
     deleteRestaurant,
     getMenu,
-    getUserLogin,
-    getRestaurantLogin,
+    postUserLogin,
+    postRestaurantLogin,
     createMenu,
     createUserLogin,
     createRestaurantLogin,

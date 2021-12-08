@@ -2,6 +2,7 @@ const { response } = require('express')
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3001 
+const path = require('path')
 
 const restaurant_model = require('./restaurant_model')
 
@@ -42,18 +43,8 @@ app.get('/restaurant_menu', (req, res) => {
   })
 })
 
-app.get('/user_login', (req, res) => {
-  restaurant_model.getUserLogin()
-  .then(response => {
-    res.status(200).send(response);
-  })
-  .catch(error => {
-    res.status(500).send(error);
-  })
-})
-
-app.get('/restaurant_login', (req, res) => {
-  restaurant_model.getRestaurantLogin()
+app.post('/restaurant_login', (req, res) => {
+  restaurant_model.postRestaurantLogin(req.body)
   .then(response => {
     res.status(200).send(response);
   })
@@ -83,6 +74,18 @@ app.post('/restaurant_menu', (req, res) => {
 })
 
 app.post('/user_login', (req, res) => {
+  
+  restaurant_model.postUserLogin(req.body)
+  .then(response => {
+    res.status(200).send(response);
+  })
+  .catch(error => {
+    res.status(500).send(error);
+  })
+})
+
+app.post('/create_user_login', (req, res) => {
+  console.log(req.body)
   restaurant_model.createUserLogin(req.body)
   .then(response => {
     res.status(200).send(response);
@@ -92,7 +95,7 @@ app.post('/user_login', (req, res) => {
   })
 })
 
-app.post('/restaurant_login', (req, res) => {
+app.post('/create_restaurant_login', (req, res) => {
   restaurant_model.createRestaurantLogin(req.body)
   .then(response => {
     res.status(200).send(response);

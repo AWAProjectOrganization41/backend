@@ -120,11 +120,13 @@ const getRestaurants = () => {
 
   const createRestaurantLogin = (body) => {
     return new Promise(function(resolve, reject) {
-      const { restaurant_username, restaurant_password, owner_id } = body
-      client.query('INSERT INTO restaurant_login (restaurant_username, restaurant_password, owner_id) VALUES ($1, $2, $3) RETURNING *', [restaurant_username, restaurant_password, owner_id], (error, results) => {
+      const { username, password } = body
+      console.log("boty: "+JSON.stringify(body))
+      client.query('INSERT INTO restaurant_login (restaurant_username, restaurant_password) VALUES ($1, $2) RETURNING *', [username, password], (error, results) => {
         if (error) {
           reject(error)
         }
+        console.log("jup")
         resolve(` new user has been created`)
       })   
     })

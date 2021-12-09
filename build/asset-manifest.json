@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.ac30c0ef.chunk.css",
-    "main.js": "/static/js/main.e1391a47.chunk.js",
-    "main.js.map": "/static/js/main.e1391a47.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.1456be2b.js",
-    "runtime-main.js.map": "/static/js/runtime-main.1456be2b.js.map",
-    "static/js/2.e560ef72.chunk.js": "/static/js/2.e560ef72.chunk.js",
-    "static/js/2.e560ef72.chunk.js.map": "/static/js/2.e560ef72.chunk.js.map",
-    "static/js/3.f208f8c2.chunk.js": "/static/js/3.f208f8c2.chunk.js",
-    "static/js/3.f208f8c2.chunk.js.map": "/static/js/3.f208f8c2.chunk.js.map",
+    "main.css": "/static/css/main.7b1cf250.chunk.css",
+    "main.js": "/static/js/main.e9019cda.chunk.js",
+    "main.js.map": "/static/js/main.e9019cda.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.33aa6afd.js",
+    "runtime-main.js.map": "/static/js/runtime-main.33aa6afd.js.map",
+    "static/js/2.8f1f6932.chunk.js": "/static/js/2.8f1f6932.chunk.js",
+    "static/js/2.8f1f6932.chunk.js.map": "/static/js/2.8f1f6932.chunk.js.map",
+    "static/js/3.5f3ba558.chunk.js": "/static/js/3.5f3ba558.chunk.js",
+    "static/js/3.5f3ba558.chunk.js.map": "/static/js/3.5f3ba558.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.ac30c0ef.chunk.css.map": "/static/css/main.ac30c0ef.chunk.css.map",
-    "static/js/2.e560ef72.chunk.js.LICENSE.txt": "/static/js/2.e560ef72.chunk.js.LICENSE.txt"
+    "static/css/main.7b1cf250.chunk.css.map": "/static/css/main.7b1cf250.chunk.css.map",
+    "static/js/2.8f1f6932.chunk.js.LICENSE.txt": "/static/js/2.8f1f6932.chunk.js.LICENSE.txt",
+    "static/media/OrderStatus.module.css": "/static/media/arrival.34809377.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.1456be2b.js",
-    "static/js/2.e560ef72.chunk.js",
-    "static/css/main.ac30c0ef.chunk.css",
-    "static/js/main.e1391a47.chunk.js"
+    "static/js/runtime-main.33aa6afd.js",
+    "static/js/2.8f1f6932.chunk.js",
+    "static/css/main.7b1cf250.chunk.css",
+    "static/js/main.e9019cda.chunk.js"
   ]
 }

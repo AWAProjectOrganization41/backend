@@ -47,6 +47,7 @@ app.get('/restaurant_menu', (req, res) => {
 })
 
 app.post('/restaurant_menu', (req, res) => {
+  console.log("req"+JSON.stringify(req.body))
   restaurant_model.getMenuById(req.body)
   .then(response => {
     res.status(200).send(response);

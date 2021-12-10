@@ -45,6 +45,16 @@ app.get('/restaurant_menu', (req, res) => {
 })
 
 app.post('/restaurant_menu', (req, res) => {
+  restaurant_model.getMenuById(req.body)
+  .then(response => {
+    res.status(200).send(response);
+  })
+  .catch(error => {
+    res.status(500).send(error);
+  })
+})
+
+app.post('/create_restaurant_menu', (req, res) => {
   restaurant_model.createMenu(req.body)
   .then(response => {
     res.status(200).send(response);

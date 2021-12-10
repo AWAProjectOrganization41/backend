@@ -33,8 +33,19 @@ app.get('/r', (req, res) => {
   })
 })
 
+
 app.get('/restaurant_menu', (req, res) => {
   restaurant_model.getMenu()
+  .then(response => {
+    res.status(200).send(response);
+  })
+  .catch(error => {
+    res.status(500).send(error);
+  })
+})
+
+app.post('/restaurant_menu', (req, res) => {
+  restaurant_model.createMenu(req.body)
   .then(response => {
     res.status(200).send(response);
   })
@@ -55,16 +66,6 @@ app.post('/restaurant_login', (req, res) => {
 
 app.post('/restaurant', (req, res) => {
   restaurant_model.createRestaurant(req.body)
-  .then(response => {
-    res.status(200).send(response);
-  })
-  .catch(error => {
-    res.status(500).send(error);
-  })
-})
-
-app.post('/restaurant_menu', (req, res) => {
-  restaurant_model.createMenu(req.body)
   .then(response => {
     res.status(200).send(response);
   })

@@ -52,6 +52,18 @@ const getRestaurants = () => {
     })
   }
 
+  const getMenuById = (body) => {
+    return new Promise(function(resolve, reject) {
+      const { restaurant_id } = body
+      client.query("SELECT * FROM restaurant_menu WHERE owner_id = $1", [restaurant_id], (error, results) => {
+        if (error) {
+          reject(error)
+        }
+        resolve(results.rows)
+      })
+    })
+  }
+
   const postRestaurantLogin = (body) => {
     return new Promise(function(resolve, reject) {
       console.log("moro2")
@@ -205,5 +217,6 @@ const getRestaurants = () => {
     getRestaurantOrderhistory,
     getUserOrderhistory,
     createRestaurantOrder,
-    createUserOrder
+    createUserOrder, 
+    getMenuById
   }

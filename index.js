@@ -3,6 +3,8 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3001 
 const path = require('path')
+const cors = require('cors')
+app.use(cors())
 
 const restaurant_model = require('./restaurant_model')
 
@@ -33,8 +35,41 @@ app.get('/r', (req, res) => {
   })
 })
 
+
 app.get('/restaurant_menu', (req, res) => {
   restaurant_model.getMenu()
+  .then(response => {
+    res.status(200).send(response);
+  })
+  .catch(error => {
+    res.status(500).send(error);
+  })
+})
+
+app.post('/restaurant_menu', (req, res) => {
+  console.log("req"+JSON.stringify(req.body))
+  restaurant_model.getMenuById(req.body)
+  .then(response => {
+    res.status(200).send(response);
+  })
+  .catch(error => {
+    res.status(500).send(error);
+  })
+})
+
+app.post('/myrestaurants', (req, res) => {
+  console.log("req"+JSON.stringify(req.body))
+  restaurant_model.getRestaurantsById(req.body)
+  .then(response => {
+    res.status(200).send(response);
+  })
+  .catch(error => {
+    res.status(500).send(error);
+  })
+})
+
+app.post('/create_restaurant_menu', (req, res) => {
+  restaurant_model.createMenu(req.body)
   .then(response => {
     res.status(200).send(response);
   })
@@ -55,16 +90,6 @@ app.post('/restaurant_login', (req, res) => {
 
 app.post('/restaurant', (req, res) => {
   restaurant_model.createRestaurant(req.body)
-  .then(response => {
-    res.status(200).send(response);
-  })
-  .catch(error => {
-    res.status(500).send(error);
-  })
-})
-
-app.post('/restaurant_menu', (req, res) => {
-  restaurant_model.createMenu(req.body)
   .then(response => {
     res.status(200).send(response);
   })
@@ -117,7 +142,7 @@ app.delete('/restaurant/:id', (req, res) => {
 app.listen(port, () => {
   console.log(`App running on port ${port}.`)
 })
-
+/*
 app.get('/user_orderhistory', (req, res) => {
   restaurant_model.getUserOrderhistory()
   .then(response => {
@@ -136,7 +161,7 @@ app.get('/restaurant_orderhistory', (req, res) => {
   .catch(error => {
     res.status(500).send(error);
   })
-})
+})*/
 
 app.post('/user_orderhistory', (req, res) => {
   restaurant_model.createUserOrder(req.body)
@@ -150,6 +175,28 @@ app.post('/user_orderhistory', (req, res) => {
 
 app.post('/restaurant_orderhistory', (req, res) => {
   restaurant_model.createRestaurantOrder(req.body)
+  .then(response => {
+    res.status(200).send(response);
+  })
+  .catch(error => {
+    res.status(500).send(error);
+  })
+})
+
+app.post('/restaurantorderhistory', (req, res) => {
+  console.log("joo"+req.body.restaurant_id)
+  restaurant_model.postUserOrderHistory(req.body)
+  .then(response => {
+    res.status(200).send(response);
+  })
+  .catch(error => {
+    res.status(500).send(error);
+  })
+})
+
+app.post('/userorderhistory', (req, res) => {
+  console.log("joo"+req.body.username)
+  restaurant_model.postRestaurantOrderHistory(req.body)
   .then(response => {
     res.status(200).send(response);
   })

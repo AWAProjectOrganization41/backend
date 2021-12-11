@@ -52,9 +52,25 @@ const getRestaurants = () => {
     })
   }
 
+  const getMenuById = (body) => {
+    return new Promise(function(resolve, reject) {
+      console.log("joo"+JSON.stringify(body[0]))
+      body = JSON.parse(JSON.stringify(body[0]))
+      const { id } = body
+      console.log("jee"+id)
+      client.query("SELECT * FROM restaurant_menu WHERE owner_id = $1", [id], (error, results) => {
+        if (error) {
+          reject(error)
+        }
+        console.log(results.rows)
+        resolve(results.rows)
+      })
+    })
+  }
+
   const postRestaurantLogin = (body) => {
     return new Promise(function(resolve, reject) {
-      console.log("moro2")
+      console.log(body)
       const { email, password } = body
       client.query("SELECT * FROM restaurant_login WHERE restaurant_username = $1 AND restaurant_password = $2", [email, password], (error, results) => {
         if(error) {
@@ -205,5 +221,6 @@ const getRestaurants = () => {
     getRestaurantOrderhistory,
     getUserOrderhistory,
     createRestaurantOrder,
-    createUserOrder
+    createUserOrder, 
+    getMenuById
   }

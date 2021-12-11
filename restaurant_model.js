@@ -52,6 +52,21 @@ const getRestaurants = () => {
     })
   }
 
+  const getRestaurantsById = (body) => {
+    return new Promise(function(resolve, reject) {
+      console.log("joo"+JSON.stringify(body[0]))
+      const { id } = body[0]
+      console.log("iidee on "+id)
+      client.query("SELECT * FROM restaurant WHERE owner_id = $1", [id], (error, results) => {
+        if (error) {
+          reject(error)
+        }
+        console.log(results.rows)
+        resolve(results.rows)
+      })
+    })
+  }
+
   const getMenuById = (body) => {
     return new Promise(function(resolve, reject) {
       console.log("joo"+JSON.stringify(body[0]))
@@ -160,7 +175,7 @@ const getRestaurants = () => {
       })
     })
   }
-
+/*
   const getUserOrderhistory = () => {
     return new Promise(function(resolve, reject) {
       client.query('SELECT * FROM user_orderhistory', (error, results) => {
@@ -181,12 +196,12 @@ const getRestaurants = () => {
         resolve(results.rows);
       })
     })
-  }
+  }*/
 
   const createUserOrder = (body) => {
     return new Promise(function(resolve, reject) {
-      const { restaurant_name, products, total_price, restaurant_id} = body
-      client.query('INSERT INTO user_orderhistory (restaurant_name, products, total_price, restaurant_id) VALUES ($1, $2, $3, $4) RETURNING *', [restaurant_name, products, total_price, restaurant_id], (error, results) => {
+      const { restaurant_name, products, total_price } = body
+      client.query('INSERT INTO user_orderhistory (restaurant_name, products, total_price) VALUES ($1, $2, $3) RETURNING *', [restaurant_name, products, total_price], (error, results) => {
         if (error) {
           reject(error)
         }
@@ -197,12 +212,41 @@ const getRestaurants = () => {
 
   const createRestaurantOrder = (body) => {
     return new Promise(function(resolve, reject) {
-      const { orderer_username, products, total_price, restaurant_id} = body
-      client.query('INSERT INTO restaurant_orderhistory (orderer_username, products, total_price, restaurant_id) VALUES ($1, $2, $3, $4) RETURNING *', [orderer_username, products, total_price, restaurant_id], (error, results) => {
+      const { orderer_username, products, total_price, owner_id, restaurant_name } = body
+      console.log("restaurantorderbackend"+JSON.stringify(body))
+      client.query('INSERT INTO restaurant_orderhistory (orderer_username, products, total_price, owner_id, restaurant_name) VALUES ($1, $2, $3, $4, $5) RETURNING *', [orderer_username, products, total_price, owner_id, restaurant_name], (error, results) => {
         if (error) {
           reject(error)
         }
 
+      })   
+    })
+  }
+
+  const postUserOrderHistory = (body) => {
+    return new Promise(function(resolve, reject) {
+      const { username } = body
+      console.log("restaurantorderbackend"+username)
+      client.query('SELECT * FROM restaurant_orderhistory WHERE orderer_username = $1', [username], (error, results) => {
+        if (error) {
+          reject(error)
+        }
+        console.log(results.rows)
+        resolve(results.rows)
+      })   
+    })
+  }
+
+  const postRestaurantOrderHistory = (body) => {
+    return new Promise(function(resolve, reject) {
+      const { restaurant_id } = body
+      console.log("restaurantorderbackend"+restaurant_id)
+      client.query('SELECT * FROM restaurant_orderhistory WHERE owner_id = $1', [restaurant_id], (error, results) => {
+        if (error) {
+          reject(error)
+        }
+        console.log(results.rows)
+        resolve(results.rows)
       })   
     })
   }
@@ -218,8 +262,11 @@ const getRestaurants = () => {
     createMenu,
     createUserLogin,
     createRestaurantLogin,
-    getRestaurantOrderhistory,
-    getUserOrderhistory,
+    postUserOrderHistory,
+    postRestaurantOrderHistory,
+    getRestaurantsById,
+    //getRestaurantOrderhistory,
+    //getUserOrderhistory,
     createRestaurantOrder,
     createUserOrder, 
     getMenuById

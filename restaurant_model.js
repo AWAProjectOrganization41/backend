@@ -209,6 +209,7 @@ const getRestaurants = () => {
     })
   }
 
+  //gets user order history
   const postUserOrderHistory = (body) => {
     return new Promise(function(resolve, reject) {
       const { username } = body

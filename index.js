@@ -47,8 +47,8 @@ app.get('/restaurant_menu', (req, res) => {
   })
 })
 
+//path for creating a menu
 app.post('/restaurant_menu', (req, res) => {
-  console.log("req"+JSON.stringify(req.body))
   restaurant_model.getMenuById(req.body)
   .then(response => {
     res.status(200).send(response);

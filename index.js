@@ -102,8 +102,8 @@ app.post('/restaurant', (req, res) => {
   })
 })
 
+//path for getting users login info
 app.post('/user_login', (req, res) => {
-  
   restaurant_model.postUserLogin(req.body)
   .then(response => {
     res.status(200).send(response);

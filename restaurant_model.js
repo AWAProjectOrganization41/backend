@@ -116,6 +116,7 @@ const getRestaurants = () => {
     })
   }
 
+  //creates a new menu
   const createMenu = (body) => {
     console.log("tehhään menu"+JSON.stringify(body))
     return new Promise(function(resolve, reject) {

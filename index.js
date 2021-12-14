@@ -51,9 +51,6 @@ app.get('/restaurant_menu', (req, res) => {
   })
 })
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
-})
 
 app.post('/restaurant_menu', (req, res) => {
   console.log("req"+JSON.stringify(req.body))
@@ -212,4 +209,9 @@ app.post('/userorderhistory', (req, res) => {
   .catch(error => {
     res.status(500).send(error);
   })
+})
+
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
 })

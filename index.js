@@ -58,8 +58,8 @@ app.post('/restaurant_menu', (req, res) => {
   })
 })
 
+//path for browsing restaurant managers own restaurants
 app.post('/myrestaurants', (req, res) => {
-  console.log("req"+JSON.stringify(req.body))
   restaurant_model.getRestaurantsById(req.body)
   .then(response => {
     res.status(200).send(response);

@@ -159,18 +159,6 @@ const getRestaurants = () => {
     })
   }
   
-
-  const deleteRestaurant = () => {
-    return new Promise(function(resolve, reject) {
-      const id = parseInt(request.params.id)
-      client.query('DELETE FROM restaurant WHERE id = $1', [id], (error, results) => {
-        if (error) {
-          reject(error)
-        }
-        resolve(`Restaurant deleted with ID: ${id}`)
-      })
-    })
-  }
 /*
   const getUserOrderhistory = () => {
     return new Promise(function(resolve, reject) {
@@ -194,6 +182,7 @@ const getRestaurants = () => {
     })
   }*/
 
+  //creates an order for user
   const createUserOrder = (body) => {
     return new Promise(function(resolve, reject) {
       const { restaurant_name, products, total_price } = body

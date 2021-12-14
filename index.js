@@ -69,6 +69,7 @@ app.post('/myrestaurants', (req, res) => {
   })
 })
 
+//path for creating a menu
 app.post('/create_restaurant_menu', (req, res) => {
   restaurant_model.createMenu(req.body)
   .then(response => {

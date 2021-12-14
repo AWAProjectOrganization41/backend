@@ -124,6 +124,7 @@ app.post('/create_user_login', (req, res) => {
   })
 })
 
+//path for creating a new account
 app.post('/create_restaurant_login', (req, res) => {
   restaurant_model.createRestaurantLogin(req.body)
   .then(response => {

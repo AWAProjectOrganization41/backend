@@ -195,6 +195,7 @@ const getRestaurants = () => {
     })
   }
 
+  //creates a new order for restaurant manager
   const createRestaurantOrder = (body) => {
     return new Promise(function(resolve, reject) {
       const { orderer_username, products, total_price, owner_id, restaurant_name } = body

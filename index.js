@@ -11,22 +11,22 @@ const restaurant_model = require('./restaurant_model')
 app.use(express.json())
 
 // Kommaa jos teet lokaalisti:
-
+/*
 app.use(express.static(path.join(__dirname, 'build')))
   app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
   })
-
+*/
  
 
 
   //  UNCOMMAA TÄMÄ JOS DEVAAT LOKAALISTI
-/*app.use(function (req, res, next) {
+  app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers');
   next();
-});*/
+});
 
 app.use(express.static(path.join(__dirname, 'build')))
 

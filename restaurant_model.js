@@ -42,6 +42,7 @@ const getRestaurants = () => {
     })
   }
 
+  //function for getting the username and password
   const postUserLogin = (body) => {
     return new Promise(function(resolve, reject) {
       const { email, password } = body

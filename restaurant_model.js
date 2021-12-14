@@ -18,6 +18,7 @@ user: 'local_u',
 
 client.connect()
 
+//function for getting the restaurants
 const getRestaurants = () => {
     return new Promise(function(resolve, reject) {
       client.query('SELECT * FROM restaurant', (error, results) => {

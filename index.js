@@ -113,8 +113,8 @@ app.post('/user_login', (req, res) => {
   })
 })
 
+//path for creating a new account
 app.post('/create_user_login', (req, res) => {
-  console.log(req.body)
   restaurant_model.createUserLogin(req.body)
   .then(response => {
     res.status(200).send(response);

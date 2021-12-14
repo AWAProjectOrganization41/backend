@@ -11,15 +11,13 @@ const restaurant_model = require('./restaurant_model')
 app.use(express.json())
 
 // Kommaa jos teet lokaalisti:
+
 app.use(express.static(path.join(__dirname, 'build')))
   app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
   })
 
-  app.use(express.static(path.join(__dirname, 'build')))
-  app.get('/*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
-  })
+ 
 
 
   //  UNCOMMAA TÄMÄ JOS DEVAAT LOKAALISTI
@@ -29,6 +27,8 @@ app.use(express.static(path.join(__dirname, 'build')))
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers');
   next();
 });*/
+
+app.use(express.static(path.join(__dirname, 'build')))
 
 app.get('/customer_restaurants', (req, res) => {
   restaurant_model.getRestaurants()
@@ -49,6 +49,10 @@ app.get('/restaurant_menu', (req, res) => {
   .catch(error => {
     res.status(500).send(error);
   })
+})
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
 })
 
 app.post('/restaurant_menu', (req, res) => {

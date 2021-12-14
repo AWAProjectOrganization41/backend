@@ -30,6 +30,7 @@ const getRestaurants = () => {
     }) 
   }
 
+  //function for getting the menu
   const getMenu = () => {
     return new Promise(function(resolve, reject) {
       client.query('SELECT * FROM restaurant_menu WHERE owner_id = 1', (error, results) => {

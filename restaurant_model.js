@@ -144,8 +144,7 @@ const getRestaurants = () => {
     })
   }
 
-// drop owner_id
-
+  //creates a new restaurant
   const createRestaurantLogin = (body) => {
     return new Promise(function(resolve, reject) {
       const { username, password } = body

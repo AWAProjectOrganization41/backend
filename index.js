@@ -148,26 +148,6 @@ app.delete('/restaurant/:id', (req, res) => {
 app.listen(port, () => {
   console.log(`App running on port ${port}.`)
 })
-/*
-app.get('/user_orderhistory', (req, res) => {
-  restaurant_model.getUserOrderhistory()
-  .then(response => {
-    res.status(200).send(response);
-  })
-  .catch(error => {
-    res.status(500).send(error);
-  })
-})
-
-app.get('/restaurant_orderhistory', (req, res) => {
-  restaurant_model.getRestaurantOrderhistory()
-  .then(response => {
-    res.status(200).send(response);
-  })
-  .catch(error => {
-    res.status(500).send(error);
-  })
-})*/
 
 app.post('/user_orderhistory', (req, res) => {
   restaurant_model.createUserOrder(req.body)

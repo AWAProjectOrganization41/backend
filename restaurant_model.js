@@ -91,7 +91,7 @@ const getRestaurants = () => {
         if(error) {
           reject(error)
         }
-        console.log("moro3")
+        console.log("Kirjautuminen onnistui")
         resolve(results.rows);
       })
     })
@@ -123,13 +123,14 @@ const getRestaurants = () => {
   }
 
   const createMenu = (body) => {
+    console.log("tehhään menu"+JSON.stringify(body))
     return new Promise(function(resolve, reject) {
       const { item_name, description, price, imagepath, owner_id } = body
       client.query('INSERT INTO restaurant_menu (item_name, description, price, imagepath, owner_id) VALUES ($1, $2, $3, $4, $5) RETURNING *', [item_name, description, price, imagepath, owner_id], (error, results) => {
         if (error) {
           reject(error)
         }
-        resolve(`mooo`)
+        resolve(`Product added succesfully`)
       })   
     })
   }

@@ -224,6 +224,7 @@ const getRestaurants = () => {
     })
   }
 
+  //gets restaurant orders
   const postRestaurantOrderHistory = (body) => {
     return new Promise(function(resolve, reject) {
       const { restaurant_id } = body

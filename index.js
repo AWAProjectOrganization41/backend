@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'build')))
   next();
 });*/
 
-app.get('/r', (req, res) => {
+app.get('/customer_restaurants', (req, res) => {
   restaurant_model.getRestaurants()
   .then(response => {
     res.status(200).send(response);

@@ -130,6 +130,7 @@ const getRestaurants = () => {
     })
   }
 
+  //creates a new user
   const createUserLogin = (body) => {
     return new Promise(function(resolve, reject) {
       const { username, password } = body

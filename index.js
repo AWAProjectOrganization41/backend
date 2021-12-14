@@ -80,6 +80,7 @@ app.post('/create_restaurant_menu', (req, res) => {
   })
 })
 
+//path for getting restaurants login info
 app.post('/restaurant_login', (req, res) => {
   restaurant_model.postRestaurantLogin(req.body)
   .then(response => {

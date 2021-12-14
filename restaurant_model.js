@@ -97,19 +97,6 @@ const getRestaurants = () => {
     })
   }
 
-  /*const deleteRestaurant = () => {
-    return new Promise(function(resolve, reject) {
-      const id = parseInt(request.params.id)
-      client.query('DELETE FROM restaurant WHERE id = $1', [id], (error, results) => {
-        if (error) {
-          reject(error)
-        }
-        resolve(`Restaurant deleted with ID: ${id}`)
-      })
-    })
-  }*/
-
-
   const createRestaurant = (body) => {
     return new Promise(function(resolve, reject) {
       const { name, address, operating_hours, imagepath, restaurant_type, price_level, owner_id } = body
@@ -176,28 +163,6 @@ const getRestaurants = () => {
       })
     })
   }
-/*
-  const getUserOrderhistory = () => {
-    return new Promise(function(resolve, reject) {
-      client.query('SELECT * FROM user_orderhistory', (error, results) => {
-        if(error) {
-          reject(error)
-        }
-        resolve(results.rows);
-      })
-    })
-  }
-
-  const getRestaurantOrderhistory = () => {
-    return new Promise(function(resolve, reject) {
-      client.query('SELECT * FROM restaurant_orderhistory', (error, results) => {
-        if(error) {
-          reject(error)
-        }
-        resolve(results.rows);
-      })
-    })
-  }*/
 
   const createUserOrder = (body) => {
     return new Promise(function(resolve, reject) {
@@ -266,8 +231,6 @@ const getRestaurants = () => {
     postUserOrderHistory,
     postRestaurantOrderHistory,
     getRestaurantsById,
-    //getRestaurantOrderhistory,
-    //getUserOrderhistory,
     createRestaurantOrder,
     createUserOrder, 
     getMenuById

@@ -55,6 +55,7 @@ const getRestaurants = () => {
     })
   }
 
+  //function for getting a restaurant by id
   const getRestaurantsById = (body) => {
     return new Promise(function(resolve, reject) {
       console.log("joo"+JSON.stringify(body[0]))

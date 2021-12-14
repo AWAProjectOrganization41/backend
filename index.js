@@ -16,10 +16,6 @@ app.use(express.static(path.join(__dirname, 'build')))
     res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
   })
 
-  app.use(express.static(path.join(__dirname, 'build')))
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
-  })
 
 
   //  UNCOMMAA TÄMÄ JOS DEVAAT LOKAALISTI

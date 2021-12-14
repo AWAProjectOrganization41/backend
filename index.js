@@ -168,6 +168,7 @@ app.post('/restaurantorderhistory', (req, res) => {
   })
 })
 
+//path for getting restaurant managers orders
 app.post('/userorderhistory', (req, res) => {
   restaurant_model.postRestaurantOrderHistory(req.body)
   .then(response => {

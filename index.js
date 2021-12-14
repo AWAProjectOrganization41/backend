@@ -36,7 +36,7 @@ app.get('/r', (req, res) => {
   })
 })
 
-
+//path for browsing menus
 app.get('/restaurant_menu', (req, res) => {
   restaurant_model.getMenu()
   .then(response => {

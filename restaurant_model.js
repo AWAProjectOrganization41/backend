@@ -103,19 +103,7 @@ const getRestaurants = () => {
     })
   }
 
-  /*const deleteRestaurant = () => {
-    return new Promise(function(resolve, reject) {
-      const id = parseInt(request.params.id)
-      client.query('DELETE FROM restaurant WHERE id = $1', [id], (error, results) => {
-        if (error) {
-          reject(error)
-        }
-        resolve(`Restaurant deleted with ID: ${id}`)
-      })
-    })
-  }*/
-
-
+  //creates a new restaurant
   const createRestaurant = (body) => {
     return new Promise(function(resolve, reject) {
       const { name, address, operating_hours, imagepath, restaurant_type, price_level, owner_id } = body

@@ -135,6 +135,7 @@ app.post('/create_restaurant_login', (req, res) => {
   })
 })
 
+//path for getting order history
 app.post('/user_orderhistory', (req, res) => {
   restaurant_model.createUserOrder(req.body)
   .then(response => {
@@ -145,6 +146,7 @@ app.post('/user_orderhistory', (req, res) => {
   })
 })
 
+//path for getting order history
 app.post('/restaurant_orderhistory', (req, res) => {
   restaurant_model.createRestaurantOrder(req.body)
   .then(response => {

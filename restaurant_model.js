@@ -88,6 +88,7 @@ const getRestaurants = () => {
     })
   }
 
+  //gets restaurant managers login info
   const postRestaurantLogin = (body) => {
     return new Promise(function(resolve, reject) {
       console.log(body)

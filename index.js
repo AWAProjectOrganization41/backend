@@ -91,6 +91,7 @@ app.post('/restaurant_login', (req, res) => {
   })
 })
 
+//path for creating a restaurant
 app.post('/restaurant', (req, res) => {
   restaurant_model.createRestaurant(req.body)
   .then(response => {

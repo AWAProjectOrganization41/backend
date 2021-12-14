@@ -25,6 +25,7 @@ app.use(function (req, res, next) {
   next();
 });
 
+//path for getting restaurants
 app.get('/r', (req, res) => {
   restaurant_model.getRestaurants()
   .then(response => {

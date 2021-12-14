@@ -71,6 +71,7 @@ const getRestaurants = () => {
     })
   }
 
+  //gets menu by restaurant id
   const getMenuById = (body) => {
     return new Promise(function(resolve, reject) {
       console.log("joo"+JSON.stringify(body[0]))
